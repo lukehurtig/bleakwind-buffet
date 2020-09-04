@@ -91,12 +91,13 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// lists out special instructions for the drink
         /// </summary>
+        private List<string> specialInstructions = new List<string>();
         public List<string> SpecialInstructions
         {
             get
             {
-                if (!Ice) SpecialInstructions.Add("Hold ice");
-                return SpecialInstructions;
+                if (!Ice) specialInstructions.Add("Hold ice");
+                return specialInstructions;
             }
         }
 

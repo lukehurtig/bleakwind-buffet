@@ -166,19 +166,20 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// creates a list of what to hold on the burger
         /// </summary>
+        private List<string> specialInstructions = new List<string>();
         public List<string> SpecialInstructions
         {
             get
             {
-                if (!Bun) SpecialInstructions.Add("Hold bun");
-                if (!Ketchup) SpecialInstructions.Add("Hold ketchup");
-                if (!Mustard) SpecialInstructions.Add("Hold mustard");
-                if (!Pickle) SpecialInstructions.Add("Hold pickle");
-                if (!Cheese) SpecialInstructions.Add("Hold cheese");
-                if (!Tomato) SpecialInstructions.Add("Hold tomato");
-                if (!Lettuce) SpecialInstructions.Add("Hold lettuce");
-                if (!Mayo) SpecialInstructions.Add("Hold mayo");
-                return SpecialInstructions;
+                if (!Bun) specialInstructions.Add("Hold bun");
+                if (!Ketchup) specialInstructions.Add("Hold ketchup");
+                if (!Mustard) specialInstructions.Add("Hold mustard");
+                if (!Pickle) specialInstructions.Add("Hold pickle");
+                if (!Cheese) specialInstructions.Add("Hold cheese");
+                if (!Tomato) specialInstructions.Add("Hold tomato");
+                if (!Lettuce) specialInstructions.Add("Hold lettuce");
+                if (!Mayo) specialInstructions.Add("Hold mayo");
+                return specialInstructions;
             }
         }
 

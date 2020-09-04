@@ -103,15 +103,16 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// creates a list of what to hold on the breakfast platter
         /// </summary>
+        private List<string> specialInstructions = new List<string>();
         public List<string> SpecialInstructions
         {
             get
             {
-                if (!SausageLink) SpecialInstructions.Add("Hold sausage");
-                if (!Egg) SpecialInstructions.Add("Hold eggs");
-                if (!HashBrowns) SpecialInstructions.Add("Hold hash browns");
-                if (!Pancake) SpecialInstructions.Add("Hold pancakes");
-                return SpecialInstructions;
+                if (!SausageLink) specialInstructions.Add("Hold sausage");
+                if (!Egg) specialInstructions.Add("Hold eggs");
+                if (!HashBrowns) specialInstructions.Add("Hold hash browns");
+                if (!Pancake) specialInstructions.Add("Hold pancakes");
+                return specialInstructions;
             }
         }
 

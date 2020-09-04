@@ -87,14 +87,15 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// creates a list of what to hold on the philly
         /// </summary>
+        private List<string> specialInstructions = new List<string>();
         public List<string> SpecialInstructions
         {
             get
             {
-                if (!Sirloin) SpecialInstructions.Add("Hold sirloin");
-                if (!Onion) SpecialInstructions.Add("Hold onions");
-                if (!Roll) SpecialInstructions.Add("Hold roll");
-                return SpecialInstructions;
+                if (!Sirloin) specialInstructions.Add("Hold sirloin");
+                if (!Onion) specialInstructions.Add("Hold onions");
+                if (!Roll) specialInstructions.Add("Hold roll");
+                return specialInstructions;
             }
         }
 

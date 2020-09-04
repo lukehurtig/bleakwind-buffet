@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// provides properties describing Aretino Apple Juice
     /// </summary>
-    public class AretinoAppleJuice
+    public class ArentinoAppleJuice
     {
         /// <summary>
         /// the size of the drink
@@ -75,12 +75,13 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// lists out special instructions for the drink
         /// </summary>
+        private List<string> specialInstructions = new List<string>();
         public List<string> SpecialInstructions
         {
             get
             {
-                if (Ice) SpecialInstructions.Add("Add ice");
-                return SpecialInstructions;
+                if (Ice) specialInstructions.Add("Add ice");
+                return specialInstructions;
             }
         }
 
