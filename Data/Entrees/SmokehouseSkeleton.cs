@@ -38,7 +38,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing sausage link or not
         /// </summary>
-        private bool sausageLink = true;
+        public bool sausageLink = true;
         public bool SausageLink
         {
             get
@@ -55,7 +55,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing egg or not
         /// </summary>
-        private bool egg = true;
+        public bool egg = true;
         public bool Egg
         {
             get
@@ -71,7 +71,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing hash browns or not
         /// </summary>
-        private bool hashBrowns = true;
+        public bool hashBrowns = true;
         public bool HashBrowns
         {
             get
@@ -87,7 +87,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing pancake or not
         /// </summary>
-        private bool pancake = true;
+        public bool pancake = true;
         public bool Pancake
         {
             get

@@ -12,12 +12,12 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// provides properties describing Mad Otar Grits
     /// </summary>
-    class MadOtarGrits
+    public class MadOtarGrits
     {
         /// <summary>
         /// the size of the side
         /// </summary>
-        private Size size = Size.Small;
+        public Size size = Size.Small;
         public Size Size
         {
             get

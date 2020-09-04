@@ -38,7 +38,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing buns or not
         /// </summary>
-        private bool bun = true;
+        public bool bun = true;
         public bool Bun
         {
             get
@@ -54,7 +54,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing ketchup or not
         /// </summary>
-        private bool ketchup = true;
+        public bool ketchup = true;
         public bool Ketchup
         {
             get
@@ -70,7 +70,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing mustard or not
         /// </summary>
-        private bool mustard = true;
+        public bool mustard = true;
         public bool Mustard
         {
             get
@@ -86,7 +86,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing pickles or not
         /// </summary>
-        private bool pickle = true;
+        public bool pickle = true;
         public bool Pickle
         {
             get
@@ -102,7 +102,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing cheese or not
         /// </summary>
-        private bool cheese = true;
+        public bool cheese = true;
         public bool Cheese
         {
             get
@@ -118,7 +118,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing tomato or not
         /// </summary>
-        private bool tomato = true;
+        public bool tomato = true;
         public bool Tomato
         {
             get
@@ -134,7 +134,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing lettuce or not
         /// </summary>
-        private bool lettuce = true;
+        public bool lettuce = true;
         public bool Lettuce
         {
             get
@@ -150,7 +150,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing mayo or not
         /// </summary>
-        private bool mayo = true;
+        public bool mayo = true;
         public bool Mayo
         {
             get

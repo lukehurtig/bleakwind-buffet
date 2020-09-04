@@ -12,12 +12,12 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// provides properties describing Markarth Milk
     /// </summary>
-    class MarkarthMilk
+    public class MarkarthMilk
     {
         /// <summary>
         /// the size of the drink
         /// </summary>
-        private Size size = Size.Small;
+        public Size size = Size.Small;
         public Size Size
         {
             get
@@ -59,7 +59,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// boolean representing ice or not
         /// </summary>
-        private bool ice = false;
+        public bool ice = false;
         public bool Ice
         {
             get

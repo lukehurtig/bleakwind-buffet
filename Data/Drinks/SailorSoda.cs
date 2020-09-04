@@ -12,12 +12,12 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// provides properties describing Sailor Soda
     /// </summary>
-    class SailorSoda
+    public class SailorSoda
     {
         /// <summary>
         /// the size of the drink
         /// </summary>
-        private Size size = Size.Small;
+        public Size size = Size.Small;
         public Size Size
         {
             get
@@ -59,7 +59,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// boolean representing ice or not
         /// </summary>
-        private bool ice = true;
+        public bool ice = true;
         public bool Ice
         {
             get
@@ -75,7 +75,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// boolean representing the flavor in the drink
         /// </summary>
-        private SodaFlavor flavor = SodaFlavor.Cherry;
+        public SodaFlavor flavor = SodaFlavor.Cherry;
         public SodaFlavor Flavor
         {
             get

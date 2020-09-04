@@ -12,12 +12,12 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// provides properties describing Warrior Water
     /// </summary>
-    class WarriorWater
+    public class WarriorWater
     {
         /// <summary>
         /// the size of the water
         /// </summary>
-        private Size size = Size.Small;
+        public Size size = Size.Small;
         public Size Size
         {
             get
@@ -59,7 +59,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// boolean representing ice or not
         /// </summary>
-        private bool ice = true;
+        public bool ice = true;
         public bool Ice
         {
             get
@@ -75,7 +75,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// boolean representing lemon or not
         /// </summary>
-        private bool lemon = false;
+        public bool lemon = false;
         public bool Lemon
         {
             get
