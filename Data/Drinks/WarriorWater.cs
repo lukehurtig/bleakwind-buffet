@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// the size of the water
         /// </summary>
-        public Size size = Size.Small;
+        private Size size = Size.Small;
         public Size Size
         {
             get
@@ -59,7 +59,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// boolean representing ice or not
         /// </summary>
-        public bool ice = true;
+        private bool ice = true;
         public bool Ice
         {
             get
@@ -75,7 +75,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// boolean representing lemon or not
         /// </summary>
-        public bool lemon = false;
+        private bool lemon = false;
         public bool Lemon
         {
             get

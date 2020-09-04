@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// the size of the side
         /// </summary>
-        public Size size = Size.Small;
+        private Size size = Size.Small;
         public Size Size
         {
             get

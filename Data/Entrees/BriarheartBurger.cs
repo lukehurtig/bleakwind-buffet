@@ -38,7 +38,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing buns or not
         /// </summary>
-        public bool bun = true;
+        private bool bun = true;
         public bool Bun
         {
             get
@@ -54,7 +54,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing ketchup or not
         /// </summary>
-        public bool ketchup = true;
+        private bool ketchup = true;
         public bool Ketchup
         {
             get
@@ -70,7 +70,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing mustard or not
         /// </summary>
-        public bool mustard = true;
+        private bool mustard = true;
         public bool Mustard
         {
             get
@@ -86,7 +86,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing pickles or not
         /// </summary>
-        public bool pickle = true;
+        private bool pickle = true;
         public bool Pickle
         {
             get
@@ -102,7 +102,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing cheese or not
         /// </summary>
-        public bool cheese = true;
+        private bool cheese = true;
         public bool Cheese
         {
             get

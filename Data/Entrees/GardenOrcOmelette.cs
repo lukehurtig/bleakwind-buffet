@@ -38,7 +38,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing broccoli or not
         /// </summary>
-        public bool broccoli = true;
+        private bool broccoli = true;
         public bool Broccoli
         {
             get
@@ -55,7 +55,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing mushrooms or not
         /// </summary>
-        public bool mushrooms = true;
+        private bool mushrooms = true;
         public bool Mushrooms
         {
             get
@@ -71,7 +71,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing tomato or not
         /// </summary>
-        public bool tomato = true;
+        private bool tomato = true;
         public bool Tomato
         {
             get
@@ -87,7 +87,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing cheddar or not
         /// </summary>
-        public bool cheddar = true;
+        private bool cheddar = true;
         public bool Cheddar
         {
             get

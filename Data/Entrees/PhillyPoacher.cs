@@ -38,7 +38,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing sirloin or not
         /// </summary>
-        public bool sirloin = true;
+        private bool sirloin = true;
         public bool Sirloin
         {
             get
@@ -55,7 +55,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing onion or not
         /// </summary>
-        public bool onion = true;
+        private bool onion = true;
         public bool Onion
         {
             get
@@ -71,7 +71,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// boolean representing roll or not
         /// </summary>
-        public bool roll = true;
+        private bool roll = true;
         public bool Roll
         {
             get
