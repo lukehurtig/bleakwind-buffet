@@ -38,7 +38,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// creates a list of what to hold on the steak
         /// </summary>
-        public List<string> SpecialInstructions { get; }
+        public List<string> SpecialInstructions = new List<string>();
 
         /// <summary>
         /// over rides the ToString method to return the menu item name

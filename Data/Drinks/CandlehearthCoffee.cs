@@ -124,7 +124,8 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>the order in plain english in a string</returns>
         public override string ToString()
         {
-            return Size.ToString() + " Candlehearth Coffee";
+            if (!Decaf) return Size.ToString() + " Candlehearth Coffee";
+            else return Size.ToString() + " Decaf Candlehearth Coffee";
         }
     }
 }

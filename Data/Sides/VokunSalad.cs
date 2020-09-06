@@ -50,9 +50,9 @@ namespace BleakwindBuffet.Data.Sides
         {
             get
             {
-                if (size == Size.Medium) return 72;
-                if (size == Size.Large) return 93;
-                else return 56;
+                if (size == Size.Medium) return 52;
+                if (size == Size.Large) return 73;
+                else return 41;
             }
         }
 
