@@ -5,18 +5,19 @@
  */
 
 using System.Collections.Generic;
+using BleakwindBuffet.Data.Classification;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// provides properties describing the Thugs T-Bone
     /// </summary>
-    public class ThugsTBone
+    public class ThugsTBone : Entree, IOrderItem
     {
         /// <summary>
         /// the price of the breakfast steak
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -27,7 +28,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// how many calories are in the steak
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -38,7 +39,13 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// creates a list of what to hold on the steak
         /// </summary>
-        public List<string> SpecialInstructions = new List<string>();
+        public override List<string> SpecialInstructions
+        {
+            get
+            {
+                return new List<string>();
+            }
+        }
 
         /// <summary>
         /// over rides the ToString method to return the menu item name

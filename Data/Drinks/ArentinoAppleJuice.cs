@@ -5,6 +5,7 @@
  */
 
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Classification;
 using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -12,33 +13,17 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// provides properties describing Aretino Apple Juice
     /// </summary>
-    public class ArentinoAppleJuice
+    public class ArentinoAppleJuice : Drink, IOrderItem
     {
-        /// <summary>
-        /// the size of the drink
-        /// </summary>
-        private Size size = Size.Small;
-        public Size Size
-        {
-            get
-            {
-                return size;
-            }
-            set
-            {
-                size = value;
-            }
-        }
-
         /// <summary>
         /// the price of the drink
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                if (size == Size.Medium) return 0.87;
-                if (size == Size.Large) return 1.01;
+                if (Size == Size.Medium) return 0.87;
+                if (Size == Size.Large) return 1.01;
                 else return 0.62;
             }
         }
@@ -46,12 +31,12 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// how many calories are in the drink
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Medium) return 88;
-                if (size == Size.Large) return 132;
+                if (Size == Size.Medium) return 88;
+                if (Size == Size.Large) return 132;
                 else return 44;
             }
         }
@@ -76,7 +61,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// lists out special instructions for the drink
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

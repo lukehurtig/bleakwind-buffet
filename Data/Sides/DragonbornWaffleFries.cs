@@ -4,6 +4,7 @@
  * Purpose: Class used to represent Dragonborn Waffle Fries and its properties
  */
 
+using BleakwindBuffet.Data.Classification;
 using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;
 
@@ -12,33 +13,17 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// provides properties describing Dragonborn Waffle Fries
     /// </summary>
-    public class DragonbornWaffleFries
+    public class DragonbornWaffleFries : Side, IOrderItem
     {
-        /// <summary>
-        /// the size of the side
-        /// </summary>
-        private Size size = Size.Small;
-        public Size Size
-        {
-            get
-            {
-                return size;
-            }
-            set
-            {
-                size = value;
-            }
-        }
-
         /// <summary>
         /// the price of the side
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                if (size == Size.Medium) return 0.76;
-                if (size == Size.Large) return 0.96;
+                if (Size == Size.Medium) return 0.76;
+                if (Size == Size.Large) return 0.96;
                 else return 0.42;
             }
         }
@@ -46,12 +31,12 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// how many calories are in the side
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Medium) return 89;
-                if (size == Size.Large) return 100;
+                if (Size == Size.Medium) return 89;
+                if (Size == Size.Large) return 100;
                 else return 77;
             }
         }
@@ -59,7 +44,13 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// returns an empty list
         /// </summary>
-        public List<string> SpecialInstructions = new List<string>();
+        public override List<string> SpecialInstructions
+        {
+            get
+            {
+                return new List<string> ();
+            }
+        }
 
         /// <summary>
         /// over rides the ToString method to return the menu item name

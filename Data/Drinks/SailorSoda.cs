@@ -5,6 +5,7 @@
  */
 
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Classification;
 using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -12,33 +13,17 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// provides properties describing Sailor Soda
     /// </summary>
-    public class SailorSoda
+    public class SailorSoda : Drink, IOrderItem
     {
-        /// <summary>
-        /// the size of the drink
-        /// </summary>
-        private Size size = Size.Small;
-        public Size Size
-        {
-            get
-            {
-                return size;
-            }
-            set
-            {
-                size = value;
-            }
-        }
-
         /// <summary>
         /// the price of the drink
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                if (size == Size.Medium) return 1.74;
-                if (size == Size.Large) return 2.07;
+                if (Size == Size.Medium) return 1.74;
+                if (Size == Size.Large) return 2.07;
                 else return 1.42;
             }
         }
@@ -46,12 +31,12 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// how many calories are in the drink
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Medium) return 153;
-                if (size == Size.Large) return 205;
+                if (Size == Size.Medium) return 153;
+                if (Size == Size.Large) return 205;
                 else return 117;
             }
         }
@@ -92,7 +77,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// lists out special instructions for the drink
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

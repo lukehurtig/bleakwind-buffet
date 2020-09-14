@@ -5,18 +5,19 @@
  */
 
 using System.Collections.Generic;
+using BleakwindBuffet.Data.Classification;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// provides properties describing the Garden Orc Omelette
     /// </summary>
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette : Entree, IOrderItem
     {
         /// <summary>
         /// the price of the breakfast omelette
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -27,7 +28,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// how many calories are in the omelette
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -104,7 +105,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// creates a list of what to hold on the omelette
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

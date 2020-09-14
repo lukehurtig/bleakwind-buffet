@@ -1,18 +1,33 @@
 ﻿/*
  * Author: Zachery Brunner
  * Modified By: Lukas Hurtig
- * Class: AretinoAppleJuiceTests.cs
- * Purpose: Test the AretinoAppleJuice.cs class in the Data library
+ * Class: WarriorWaterTests.cs
+ * Purpose: Test the WarriorWater.cs class in the Data library
  */
 using Xunit;
 
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Classification;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class WarriorWaterTests
     {
+        [Fact]
+        public void ShouldBeIOrderItem()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.IsAssignableFrom<IOrderItem>(ww);
+        }
+
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.IsAssignableFrom<Drink>(ww);
+        }
+
         [Fact]
         public void IceByDefault()
         {

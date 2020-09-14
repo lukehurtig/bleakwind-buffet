@@ -5,18 +5,19 @@
  */
 
 using System.Collections.Generic;
+using BleakwindBuffet.Data.Classification;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// provides properties describing the Briarheart Burger
     /// </summary>
-    public class BriarheartBurger
+    public class BriarheartBurger : Entree, IOrderItem
     {
         /// <summary>
         /// the price of the burger
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -27,7 +28,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// how many calories are in the burger
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -119,7 +120,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// creates a list of what to hold on the burger
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

@@ -4,6 +4,7 @@
  * Purpose: Class used to represent Fried Miraak and its properties
  */
 
+using BleakwindBuffet.Data.Classification;
 using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;
 
@@ -12,33 +13,17 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// provides properties describing Fried Miraak
     /// </summary>
-    public class FriedMiraak
+    public class FriedMiraak : Side, IOrderItem
     {
-        /// <summary>
-        /// the size of the side
-        /// </summary>
-        private Size size = Size.Small;
-        public Size Size
-        {
-            get
-            {
-                return size;
-            }
-            set
-            {
-                size = value;
-            }
-        }
-
         /// <summary>
         /// the price of the side
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                if (size == Size.Medium) return 2.01;
-                if (size == Size.Large) return 2.88;
+                if (Size == Size.Medium) return 2.01;
+                if (Size == Size.Large) return 2.88;
                 else return 1.78;
             }
         }
@@ -46,12 +31,12 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// how many calories are in the side
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Medium) return 236;
-                if (size == Size.Large) return 306;
+                if (Size == Size.Medium) return 236;
+                if (Size == Size.Large) return 306;
                 else return 151;
             }
         }
@@ -59,7 +44,13 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// returns an empty list
         /// </summary>
-        public List<string> SpecialInstructions = new List<string>();
+        public override List<string> SpecialInstructions
+        {
+            get
+            {
+                return new List<string>();
+            }
+        }
 
         /// <summary>
         /// over rides the ToString method to return the menu item name
