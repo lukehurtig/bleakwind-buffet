@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Classification;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -26,6 +27,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             DragonbornWaffleFries dwf = new DragonbornWaffleFries();
             Assert.IsAssignableFrom<Side>(dwf);
+        }
+
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            DragonbornWaffleFries dwf = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(dwf);
         }
 
         [Fact]
@@ -52,6 +60,33 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             DragonbornWaffleFries dwf = new DragonbornWaffleFries();
             Assert.Empty(dwf.SpecialInstructions);
+        }
+
+        [Fact]
+        public void ShouldNotifySizeChange()
+        {
+            DragonbornWaffleFries dwf = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dwf, "Size", () => { dwf.Size = Size.Large; });
+            Assert.PropertyChanged(dwf, "Size", () => { dwf.Size = Size.Medium; });
+            Assert.PropertyChanged(dwf, "Size", () => { dwf.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyPriceChange()
+        {
+            DragonbornWaffleFries dwf = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dwf, "Price", () => { dwf.Size = Size.Large; });
+            Assert.PropertyChanged(dwf, "Price", () => { dwf.Size = Size.Medium; });
+            Assert.PropertyChanged(dwf, "Price", () => { dwf.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyCaloriesChange()
+        {
+            DragonbornWaffleFries dwf = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dwf, "Calories", () => { dwf.Size = Size.Large; });
+            Assert.PropertyChanged(dwf, "Calories", () => { dwf.Size = Size.Medium; });
+            Assert.PropertyChanged(dwf, "Calories", () => { dwf.Size = Size.Small; });
         }
 
         [Theory]

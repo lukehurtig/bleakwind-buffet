@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Classification;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -26,6 +27,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             VokunSalad vs = new VokunSalad();
             Assert.IsAssignableFrom<Side>(vs);
+        }
+
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            VokunSalad vs = new VokunSalad();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(vs);
         }
 
         [Fact]
@@ -52,6 +60,33 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             VokunSalad vs = new VokunSalad();
             Assert.Empty(vs.SpecialInstructions);
+        }
+
+        [Fact]
+        public void ShouldNotifySizeChange()
+        {
+            VokunSalad vs = new VokunSalad();
+            Assert.PropertyChanged(vs, "Size", () => { vs.Size = Size.Large; });
+            Assert.PropertyChanged(vs, "Size", () => { vs.Size = Size.Medium; });
+            Assert.PropertyChanged(vs, "Size", () => { vs.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyPriceChange()
+        {
+            VokunSalad vs = new VokunSalad();
+            Assert.PropertyChanged(vs, "Price", () => { vs.Size = Size.Large; });
+            Assert.PropertyChanged(vs, "Price", () => { vs.Size = Size.Medium; });
+            Assert.PropertyChanged(vs, "Price", () => { vs.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyCaloriesChange()
+        {
+            VokunSalad vs = new VokunSalad();
+            Assert.PropertyChanged(vs, "Calories", () => { vs.Size = Size.Large; });
+            Assert.PropertyChanged(vs, "Calories", () => { vs.Size = Size.Medium; });
+            Assert.PropertyChanged(vs, "Calories", () => { vs.Size = Size.Small; });
         }
 
         [Theory]

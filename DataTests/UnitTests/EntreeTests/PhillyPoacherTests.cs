@@ -8,6 +8,7 @@ using Xunit;
 
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Classification;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -25,6 +26,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher pp = new PhillyPoacher();
             Assert.IsAssignableFrom<Entree>(pp);
+        }
+
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(pp);
         }
 
         [Fact]
@@ -90,6 +98,39 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher pp = new PhillyPoacher();
             Assert.Equal((uint)784, pp.Calories);
+        }
+
+        [Fact]
+        public void ShouldNotifyOnionChange()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.PropertyChanged(pp, "Onion", () => { pp.Onion = false; });
+            Assert.PropertyChanged(pp, "Onion", () => { pp.Onion = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifyRollChange()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.PropertyChanged(pp, "Roll", () => { pp.Roll = false; });
+            Assert.PropertyChanged(pp, "Roll", () => { pp.Roll = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifySirloinChange()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.PropertyChanged(pp, "Sirloin", () => { pp.Sirloin = false; });
+            Assert.PropertyChanged(pp, "Sirloin", () => { pp.Sirloin = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifySpecialIncstructionsChange()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.PropertyChanged(pp, "SpecialInstructions", () => { pp.Onion = false; });
+            Assert.PropertyChanged(pp, "SpecialInstructions", () => { pp.Roll = false; });
+            Assert.PropertyChanged(pp, "SpecialInstructions", () => { pp.Sirloin = false; });
         }
 
         [Theory]

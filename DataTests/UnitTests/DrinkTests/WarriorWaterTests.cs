@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Classification;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -26,6 +27,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             WarriorWater ww = new WarriorWater();
             Assert.IsAssignableFrom<Drink>(ww);
+        }
+
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ww);
         }
 
         [Fact]
@@ -79,6 +87,39 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.True(ww.Lemon);
             ww.Lemon = false;
             Assert.False(ww.Lemon);
+        }
+
+        [Fact]
+        public void ShouldNotifySizeChange()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Size", () => { ww.Size = Size.Large; });
+            Assert.PropertyChanged(ww, "Size", () => { ww.Size = Size.Medium; });
+            Assert.PropertyChanged(ww, "Size", () => { ww.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyIceChange()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Ice", () => { ww.Ice = false; });
+            Assert.PropertyChanged(ww, "Ice", () => { ww.Ice = true; });
+        }
+
+        [Fact]
+        public void ShouldNotifyLemonChange()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Lemon", () => { ww.Lemon = true; });
+            Assert.PropertyChanged(ww, "Lemon", () => { ww.Lemon = false; });
+        }
+
+        [Fact]
+        public void ShouldNotifySpecialInstructionsChange()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "SpecialInstructions", () => { ww.Ice = false; });
+            Assert.PropertyChanged(ww, "SpecialInstructions", () => { ww.Lemon = true; });
         }
 
         [Theory]

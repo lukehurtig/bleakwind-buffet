@@ -56,6 +56,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 bun = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -73,6 +74,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 ketchup = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -90,6 +92,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 mustard = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -107,6 +110,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 pickle = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -124,6 +128,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 cheese = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -141,6 +146,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 tomato = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -158,6 +164,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 lettuce = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -175,6 +182,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 mayo = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -189,42 +197,34 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Bun)
                 {
                     specialInstructions.Add("Hold bun");
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 if (!Ketchup)
                 {
                     specialInstructions.Add("Hold ketchup");
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 if (!Mustard)
                 {
                     specialInstructions.Add("Hold mustard");
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 if (!Pickle)
                 {
                     specialInstructions.Add("Hold pickle");
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 if (!Cheese)
                 {
                     specialInstructions.Add("Hold cheese");
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 if (!Tomato)
                 {
                     specialInstructions.Add("Hold tomato");
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 if (!Lettuce)
                 {
                     specialInstructions.Add("Hold lettuce");
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 if (!Mayo)
                 {
                     specialInstructions.Add("Hold mayo");
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 return specialInstructions;
             }

@@ -76,6 +76,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 ice = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -93,6 +94,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 lemon = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -107,12 +109,10 @@ namespace BleakwindBuffet.Data.Drinks
                 if (!Ice)
                 {
                     specialInstructions.Add("Hold ice");
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }                     
                 if (Lemon)
                 {
                     specialInstructions.Add("Add lemon");
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 return specialInstructions;
             }

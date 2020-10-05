@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Classification;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -26,6 +27,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             FriedMiraak fm = new FriedMiraak();
             Assert.IsAssignableFrom<Side>(fm);
+        }
+
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            FriedMiraak fm = new FriedMiraak();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(fm);
         }
 
         [Fact]
@@ -52,6 +60,33 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             FriedMiraak fm = new FriedMiraak();
             Assert.Empty(fm.SpecialInstructions);
+        }
+
+        [Fact]
+        public void ShouldNotifySizeChange()
+        {
+            FriedMiraak fm = new FriedMiraak();
+            Assert.PropertyChanged(fm, "Size", () => { fm.Size = Size.Large; });
+            Assert.PropertyChanged(fm, "Size", () => { fm.Size = Size.Medium; });
+            Assert.PropertyChanged(fm, "Size", () => { fm.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyPriceChange()
+        {
+            FriedMiraak fm = new FriedMiraak();
+            Assert.PropertyChanged(fm, "Price", () => { fm.Size = Size.Large; });
+            Assert.PropertyChanged(fm, "Price", () => { fm.Size = Size.Medium; });
+            Assert.PropertyChanged(fm, "Price", () => { fm.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ShouldNotifyCaloriesChange()
+        {
+            FriedMiraak fm = new FriedMiraak();
+            Assert.PropertyChanged(fm, "Calories", () => { fm.Size = Size.Large; });
+            Assert.PropertyChanged(fm, "Calories", () => { fm.Size = Size.Medium; });
+            Assert.PropertyChanged(fm, "Calories", () => { fm.Size = Size.Small; });
         }
 
         [Theory]
