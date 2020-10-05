@@ -5,6 +5,7 @@
  * the UserControl and executes c# code for the application
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,11 +41,26 @@ namespace PointOfSale.EntreeInterface
         }
 
         /// <summary>
+        /// The object represented by this class
+        /// </summary>
+        private DoubleDraugr dd;
+
+        /// <summary>
         /// Initializes the UserControl class
         /// </summary>
         public DoubleDraugrCustomize()
         {
             InitializeComponent();
+
+            dd = new DoubleDraugr();
+            Bun.IsChecked = dd.Bun;
+            Ketchup.IsChecked = dd.Ketchup;
+            Mustard.IsChecked = dd.Mustard;
+            Pickle.IsChecked = dd.Pickle;
+            Cheese.IsChecked = dd.Cheese;
+            Tomato.IsChecked = dd.Tomato;
+            Mayo.IsChecked = dd.Mayo;
+            Lettuce.IsChecked = dd.Lettuce;
         }
 
         /// <summary>

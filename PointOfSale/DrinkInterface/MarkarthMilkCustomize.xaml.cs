@@ -5,6 +5,7 @@
  * the UserControl and executes c# code for the application
  */
 
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,11 +41,20 @@ namespace PointOfSale.DrinkInterface
         }
 
         /// <summary>
+        /// The object represented by this class
+        /// </summary>
+        private MarkarthMilk mm;
+
+        /// <summary>
         /// Initializes the UserControl class
         /// </summary>
         public MarkarthMilkCustomize()
         {
             InitializeComponent();
+
+            mm = new MarkarthMilk();
+            Sizes.DataContext = mm.Size;
+            HoldIce.IsChecked = mm.Ice;
         }
 
         /// <summary>

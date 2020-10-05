@@ -5,6 +5,7 @@
  * the UserControl and executes c# code for the application
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,11 +41,21 @@ namespace PointOfSale.EntreeInterface
         }
 
         /// <summary>
+        /// The object represented by this class
+        /// </summary>
+        private PhillyPoacher pp;
+
+        /// <summary>
         /// Initializes the UserControl class
         /// </summary>
         public PhillyPoacherCustomize()
         {
             InitializeComponent();
+
+            pp = new PhillyPoacher();
+            Roll.IsChecked = pp.Roll;
+            Sirloin.IsChecked = pp.Sirloin;
+            Onion.IsChecked = pp.Onion;
         }
 
         /// <summary>

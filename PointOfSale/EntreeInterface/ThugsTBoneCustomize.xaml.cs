@@ -5,6 +5,7 @@
  * the UserControl and executes c# code for the application
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,11 +41,18 @@ namespace PointOfSale.EntreeInterface
         }
 
         /// <summary>
+        /// The object represented by this class
+        /// </summary>
+        private ThugsTBone tb;
+
+        /// <summary>
         /// Initializes the UserControl class
         /// </summary>
         public ThugsTBoneCustomize()
         {
             InitializeComponent();
+
+            tb = new ThugsTBone();
         }
 
         /// <summary>

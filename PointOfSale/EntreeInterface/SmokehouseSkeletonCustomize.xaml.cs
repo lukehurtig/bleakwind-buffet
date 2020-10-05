@@ -5,6 +5,7 @@
  * the UserControl and executes c# code for the application
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,11 +41,22 @@ namespace PointOfSale.EntreeInterface
         }
 
         /// <summary>
+        /// The object represented by this class
+        /// </summary>
+        private SmokehouseSkeleton ss;
+
+        /// <summary>
         /// Initializes the UserControl class
         /// </summary>
         public SmokehouseSkeletonCustomize()
         {
             InitializeComponent();
+
+            ss = new SmokehouseSkeleton();
+            Sausage.IsChecked = ss.SausageLink;
+            Eggs.IsChecked = ss.Egg;
+            Hash.IsChecked = ss.HashBrowns;
+            Pancakes.IsChecked = ss.Pancake;
         }
 
         /// <summary>

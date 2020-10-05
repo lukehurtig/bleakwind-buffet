@@ -5,6 +5,7 @@
  * the UserControl and executes c# code for the application
  */
 
+using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -44,11 +45,19 @@ namespace PointOfSale.SideInterface
         }
 
         /// <summary>
+        /// The object represented by this class
+        /// </summary>
+        private DragonbornWaffleFries dwf;
+
+        /// <summary>
         /// Initializes the UserControl class
         /// </summary>
         public DragonbornWaffleFriesCustomize()
         {
             InitializeComponent();
+
+            dwf = new DragonbornWaffleFries();
+            Sizes.DataContext = dwf.Size;
         }
 
         /// <summary>

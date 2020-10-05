@@ -5,6 +5,7 @@
  * the UserControl and executes c# code for the application
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,11 +41,22 @@ namespace PointOfSale.EntreeInterface
         }
 
         /// <summary>
+        /// The object represented by this class
+        /// </summary>
+        private GardenOrcOmelette go;
+
+        /// <summary>
         /// Initializes the UserControl class
         /// </summary>
         public GardenOrcOmletteCustomize()
         {
             InitializeComponent();
+
+            go = new GardenOrcOmelette();
+            Broccoli.IsChecked = go.Broccoli;
+            Tomato.IsChecked = go.Tomato;
+            Mushroom.IsChecked = go.Mushrooms;
+            Cheddar.IsChecked = go.Cheddar;
         }
 
         /// <summary>

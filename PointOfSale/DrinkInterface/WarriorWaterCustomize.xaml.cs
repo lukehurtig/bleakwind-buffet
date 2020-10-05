@@ -5,6 +5,7 @@
  * the UserControl and executes c# code for the application
  */
 
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,11 +41,21 @@ namespace PointOfSale.DrinkInterface
         }
 
         /// <summary>
+        /// The object represented by this class
+        /// </summary>
+        private WarriorWater ww;
+
+        /// <summary>
         /// Initializes the UserControl class
         /// </summary>
         public WarriorWaterCustomize()
         {
             InitializeComponent();
+
+            ww = new WarriorWater();
+            Sizes.DataContext = ww.Size;
+            HoldIce.IsChecked = ww.Ice;
+            Lemon.IsChecked = ww.Lemon;
         }
 
         /// <summary>

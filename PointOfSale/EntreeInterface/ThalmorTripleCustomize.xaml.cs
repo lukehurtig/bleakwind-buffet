@@ -5,6 +5,7 @@
  * the UserControl and executes c# code for the application
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,11 +41,29 @@ namespace PointOfSale.EntreeInterface
         }
 
         /// <summary>
+        /// The object represented by this class
+        /// </summary>
+        private ThalmorTriple tt;
+
+        /// <summary>
         /// Initializes the UserControl class
         /// </summary>
         public ThalmorTripleCustomize()
         {
             InitializeComponent();
+
+            tt = new ThalmorTriple();
+            Bun.IsChecked = tt.Bun;
+            Ketchup.IsChecked = tt.Ketchup;
+            Mustard.IsChecked = tt.Mustard;
+            Pickle.IsChecked = tt.Pickle;
+            Cheese.IsChecked = tt.Cheese;
+            Tomato.IsChecked = tt.Tomato;
+            Mayo.IsChecked = tt.Mayo;
+            Lettuce.IsChecked = tt.Lettuce;
+            Egg.IsChecked = tt.Egg;
+            Bacon.IsChecked = tt.Bacon;
+
         }
 
         /// <summary>

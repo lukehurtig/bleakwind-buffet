@@ -37,10 +37,14 @@
         <TextBlock Text="Customize Garden Orc Omelette" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="10" FontSize="24" FontStyle="Oblique" FontWeight="Bold" Foreground="BurlyWood" Grid.ColumnSpan="2"/>
 
         <Border Background="Sienna" Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" Margin="10" CornerRadius="5"/>
-        <CheckBox x:Name="Broccoli" Content="Hold Broccoli" Grid.Column="0" Grid.Row="1" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Tomato" Content="Hold Tomatoes" Grid.Column="0" Grid.Row="2" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Mushroom" Content="Hold Mushrooms" Grid.Column="0" Grid.Row="3" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Cheddar" Content="Hold Cheddar" Grid.Column="0" Grid.Row="4" Margin="15" FontSize="16" Foreground="BurlyWood"/>
+        <CheckBox x:Name="Broccoli" Content="Hold Broccoli" Grid.Column="0" Grid.Row="1" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Broccoli}"/>
+        <CheckBox x:Name="Tomato" Content="Hold Tomatoes" Grid.Column="0" Grid.Row="2" Margin="15" FontSize="16" 
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Tomato}"/>
+        <CheckBox x:Name="Mushroom" Content="Hold Mushrooms" Grid.Column="0" Grid.Row="3" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Mushroom}"/>
+        <CheckBox x:Name="Cheddar" Content="Hold Cheddar" Grid.Column="0" Grid.Row="4" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Cheddar}"/>
         <Button x:Name="Add" Content="Add to Order" Grid.Column="1" Grid.Row="6" Click="Add_Click"/>
         <Button x:Name="Back" Content="Go Back" Grid.Column="0" Grid.Row="6" Click="Back_Click"/>
     </Grid>

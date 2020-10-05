@@ -3,10 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PointOfSale.DrinkInterface"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
+        <ObjectDataProvider x:Key="sizes" ObjectType="system:Enum" MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:Size"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Margin" Value="15"/>
@@ -36,16 +42,16 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Customize Candlehearth Coffee" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="10" FontSize="24" FontStyle="Oblique" FontWeight="Bold" Foreground="BurlyWood" Grid.ColumnSpan="2"/>
 
-        <ListBox x:Name="Sizes" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Margin="15" SelectionMode="Single" FontSize="16" Background="Sienna">
-            <Label Content="Choose a Size:"/>
-            <ListBoxItem>Small</ListBoxItem>
-            <ListBoxItem>Medium</ListBoxItem>
-            <ListBoxItem>Large</ListBoxItem>
+        <ListBox x:Name="Sizes" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Margin="15" SelectionMode="Single" FontSize="16" Background="Sienna"
+            ItemsSource="{Binding Source={StaticResource sizes}}" SelectedItem="{Binding Path=Size}">            
         </ListBox>
         <Border Background="Sienna" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Margin="10" CornerRadius="5"/>
-        <CheckBox x:Name="AddIce" Content="Add Ice" Grid.Column="1" Grid.Row="1" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="RoomforCream" Content="Room for Cream" Grid.Column="1" Grid.Row="2" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Decaf" Content="Decaf" Grid.Column="1" Grid.Row="3" Margin="15" FontSize="16" Foreground="BurlyWood"/>
+        <CheckBox x:Name="AddIce" Content="Add Ice" Grid.Column="1" Grid.Row="1" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Ice}"/>
+        <CheckBox x:Name="RoomforCream" Content="Room for Cream" Grid.Column="1" Grid.Row="2" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=RoomForCream}"/>
+        <CheckBox x:Name="Decaf" Content="Decaf" Grid.Column="1" Grid.Row="3" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Decaf}"/>
         <Button x:Name="Add" Content="Add to Order" Grid.Column="1" Grid.Row="5" Click="Add_Click"/>
         <Button x:Name="Back" Content="Go Back" Grid.Column="0" Grid.Row="5" Click="Back_Click"/>
     </Grid>

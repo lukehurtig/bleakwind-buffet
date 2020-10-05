@@ -38,14 +38,22 @@
         <TextBlock Text="Customize Double Draugr" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="10" FontSize="24" FontStyle="Oblique" FontWeight="Bold" Foreground="BurlyWood" Grid.ColumnSpan="2"/>
 
         <Border Background="Sienna" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Margin="10" CornerRadius="5"/>
-        <CheckBox x:Name="Bun" Content="Hold Bun" Grid.Column="0" Grid.Row="1" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Ketchup" Content="Hold Ketchup" Grid.Column="0" Grid.Row="2" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Mustard" Content="Hold Mustard" Grid.Column="0" Grid.Row="3" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Pickle" Content="Hold Pickle" Grid.Column="1" Grid.Row="1" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Cheese" Content="Hold Cheese" Grid.Column="1" Grid.Row="2" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Tomato" Content="Hold Tomato" Grid.Column="1" Grid.Row="3" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Mayo" Content="Hold Mayo" Grid.Column="0" Grid.Row="4" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Lettuce" Content="Hold Lettuce" Grid.Column="1" Grid.Row="4" Margin="15" FontSize="16" Foreground="BurlyWood"/>
+        <CheckBox x:Name="Bun" Content="Hold Bun" Grid.Column="0" Grid.Row="1" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Bun}"/>
+        <CheckBox x:Name="Ketchup" Content="Hold Ketchup" Grid.Column="0" Grid.Row="2" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Ketchup}"/>
+        <CheckBox x:Name="Mustard" Content="Hold Mustard" Grid.Column="0" Grid.Row="3" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Mustard}"/>
+        <CheckBox x:Name="Pickle" Content="Hold Pickle" Grid.Column="1" Grid.Row="1" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Pickle}"/>
+        <CheckBox x:Name="Cheese" Content="Hold Cheese" Grid.Column="1" Grid.Row="2" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Cheese}"/>
+        <CheckBox x:Name="Tomato" Content="Hold Tomato" Grid.Column="1" Grid.Row="3" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Tomato}"/>
+        <CheckBox x:Name="Mayo" Content="Hold Mayo" Grid.Column="0" Grid.Row="4" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Mayo}"/>
+        <CheckBox x:Name="Lettuce" Content="Hold Lettuce" Grid.Column="1" Grid.Row="4" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Lettuce}"/>
         <Button x:Name="Add" Content="Add to Order" Grid.Column="1" Grid.Row="6" Click="Add_Click"/>
         <Button x:Name="Back" Content="Go Back" Grid.Column="0" Grid.Row="6" Click="Back_Click"/>
     </Grid>

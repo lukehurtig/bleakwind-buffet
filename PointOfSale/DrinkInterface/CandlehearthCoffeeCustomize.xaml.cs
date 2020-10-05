@@ -5,6 +5,7 @@
  * the UserControl and executes c# code for the application
  */
 
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,11 +41,22 @@ namespace PointOfSale.DrinkInterface
         }
 
         /// <summary>
+        /// The object represented by this class
+        /// </summary>
+        private CandlehearthCoffee cc;
+
+        /// <summary>
         /// Initializes the UserControl class
         /// </summary>
         public CandlehearthCoffeeCustomize()
         {
             InitializeComponent();
+
+            cc = new CandlehearthCoffee();
+            Sizes.DataContext = cc.Size;
+            AddIce.IsChecked = cc.Ice;
+            RoomforCream.IsChecked = cc.RoomForCream;
+            Decaf.IsChecked = cc.Decaf;
         }
 
         /// <summary>

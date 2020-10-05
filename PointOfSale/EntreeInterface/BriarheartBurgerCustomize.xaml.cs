@@ -5,6 +5,7 @@
  * the UserControl and executes c# code for the application
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,11 +41,23 @@ namespace PointOfSale.EntreeInterface
         }
 
         /// <summary>
+        /// The object represented by this class
+        /// </summary>
+        private BriarheartBurger bb;
+
+        /// <summary>
         /// Initializes the UserControl class
         /// </summary>
         public BriarheartBurgerCustomize()
         {
             InitializeComponent();
+
+            bb = new BriarheartBurger();
+            Bun.IsChecked = bb.Bun;
+            Ketchup.IsChecked = bb.Ketchup;
+            Mustard.IsChecked = bb.Mustard;
+            Pickle.IsChecked = bb.Pickle;
+            Cheese.IsChecked = bb.Cheese;
         }
 
         /// <summary>

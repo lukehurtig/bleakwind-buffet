@@ -37,9 +37,12 @@
         <TextBlock Text="Customize Philly Poacher" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="10" FontSize="24" FontStyle="Oblique" FontWeight="Bold" Foreground="BurlyWood" Grid.ColumnSpan="2"/>
 
         <Border Background="Sienna" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Margin="10" CornerRadius="5"/>
-        <CheckBox x:Name="Roll" Content="Hold Roll" Grid.Column="0" Grid.Row="1" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Sirloin" Content="Hold Sirloin" Grid.Column="0" Grid.Row="2" Margin="15" FontSize="16" Foreground="BurlyWood"/>
-        <CheckBox x:Name="Onion" Content="Hold Onions" Grid.Column="0" Grid.Row="3" Margin="15" FontSize="16" Foreground="BurlyWood"/>
+        <CheckBox x:Name="Roll" Content="Hold Roll" Grid.Column="0" Grid.Row="1" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Roll}"/>
+        <CheckBox x:Name="Sirloin" Content="Hold Sirloin" Grid.Column="0" Grid.Row="2" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Sirloin}"/>
+        <CheckBox x:Name="Onion" Content="Hold Onions" Grid.Column="0" Grid.Row="3" Margin="15" FontSize="16"
+                  Foreground="BurlyWood" IsChecked="{Binding Path=Onion}"/>
         <Button x:Name="Add" Content="Add to Order" Grid.Column="1" Grid.Row="6" Click="Add_Click"/>
         <Button x:Name="Back" Content="Go Back" Grid.Column="0" Grid.Row="6" Click="Back_Click"/>
     </Grid>
