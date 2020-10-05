@@ -103,13 +103,17 @@ namespace BleakwindBuffet.Data.Classification
                 mm.Size = size;
                 drinks.Add(mm);
 
-                SailorSoda ss = new SailorSoda();
-                ss.Size = size;
-                drinks.Add(ss);
-
                 WarriorWater ww = new WarriorWater();
                 ww.Size = size;
                 drinks.Add(ww);
+
+                foreach (SodaFlavor flavor in Enum.GetValues(typeof(SodaFlavor)))
+                {
+                    SailorSoda ss = new SailorSoda();
+                    ss.Size = size;
+                    ss.Flavor = flavor;
+                    drinks.Add(ss);
+                }
             }
 
             return drinks;
