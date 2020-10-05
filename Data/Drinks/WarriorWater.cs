@@ -7,17 +7,38 @@
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Classification;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// provides properties describing Warrior Water
     /// </summary>
-    public class WarriorWater : Drink, IOrderItem
+    public class WarriorWater : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The event handler to be invoked whenever a property is changed in this class
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// The size of the water
+        /// </summary>
+        private Size size = Size.Small;
+        public override Size Size 
+        { 
+            get => size;
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
+        }
+
         /// <summary>
         /// the price of the water
         /// </summary>
+        private double price = 0.00;
         public override double Price
         {
             get
@@ -54,6 +75,7 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
             }
         }
 
@@ -70,6 +92,7 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 lemon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
             }
         }
 
@@ -81,8 +104,16 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get
             {
-                if (!Ice) specialInstructions.Add("Hold ice");
-                if (Lemon) specialInstructions.Add("Add lemon");
+                if (!Ice)
+                {
+                    specialInstructions.Add("Hold ice");
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }                     
+                if (Lemon)
+                {
+                    specialInstructions.Add("Add lemon");
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 return specialInstructions;
             }
         }

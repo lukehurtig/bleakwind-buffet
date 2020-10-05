@@ -6,14 +6,20 @@
 
 using System.Collections.Generic;
 using BleakwindBuffet.Data.Classification;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// provides properties describing the Philly Poacher
     /// </summary>
-    public class PhillyPoacher : Entree, IOrderItem
+    public class PhillyPoacher : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The event handler to be invoked whenever a property is changed in this class
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// the price of the breakfast philly
         /// </summary>
@@ -50,6 +56,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
             }
         }
 
@@ -66,6 +73,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
             }
         }
 
@@ -82,6 +90,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
             }
         }
 
@@ -93,9 +102,21 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get
             {
-                if (!Sirloin) specialInstructions.Add("Hold sirloin");
-                if (!Onion) specialInstructions.Add("Hold onions");
-                if (!Roll) specialInstructions.Add("Hold roll");
+                if (!Sirloin)
+                {
+                    specialInstructions.Add("Hold sirloin"); 
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                if (!Onion)
+                {
+                    specialInstructions.Add("Hold onions"); 
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                if (!Roll)
+                {
+                    specialInstructions.Add("Hold roll"); 
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 return specialInstructions;
             }
         }

@@ -7,14 +7,36 @@
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Classification;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// provides properties describing Aretino Apple Juice
     /// </summary>
-    public class ArentinoAppleJuice : Drink, IOrderItem
+    public class ArentinoAppleJuice : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The event handler to be invoked whenever a property is changed in this class
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// The size of the drink
+        /// </summary>
+        private Size size = Size.Small;
+        public override Size Size
+        {
+            get => size;
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
+
         /// <summary>
         /// the price of the drink
         /// </summary>
@@ -54,6 +76,7 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
             }
         }
 
@@ -65,7 +88,11 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get
             {
-                if (Ice) specialInstructions.Add("Add ice");
+                if (Ice)
+                {
+                    specialInstructions.Add("Add ice");
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 return specialInstructions;
             }
         }

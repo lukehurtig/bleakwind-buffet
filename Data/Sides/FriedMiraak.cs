@@ -7,14 +7,36 @@
 using BleakwindBuffet.Data.Classification;
 using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// provides properties describing Fried Miraak
     /// </summary>
-    public class FriedMiraak : Side, IOrderItem
+    public class FriedMiraak : Side, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The event handler to be invoked whenever a property is changed in this class
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// The size of the water
+        /// </summary>
+        private Size size = Size.Small;
+        public override Size Size
+        {
+            get => size;
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
+
         /// <summary>
         /// the price of the side
         /// </summary>

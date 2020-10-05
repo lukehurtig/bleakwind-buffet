@@ -1,5 +1,5 @@
 ﻿/*
- *Author: Lukas Hurtig
+ * Author: Lukas Hurtig
  * Class name: Size.cs
  * Purpose: Class used to represent soda flavors through an enumeration
  */

@@ -6,14 +6,20 @@
 
 using System.Collections.Generic;
 using BleakwindBuffet.Data.Classification;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// provides properties describing the Garden Orc Omelette
     /// </summary>
-    public class GardenOrcOmelette : Entree, IOrderItem
+    public class GardenOrcOmelette : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The event handler to be invoked whenever a property is changed in this class
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// the price of the breakfast omelette
         /// </summary>
@@ -50,6 +56,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 broccoli = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
             }
         }
 
@@ -66,6 +73,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 mushrooms = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
             }
         }
 
@@ -82,6 +90,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
             }
         }
 
@@ -98,6 +107,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 cheddar = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
             }
         }
 
@@ -109,10 +119,26 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get
             {
-                if (!Broccoli) specialInstructions.Add("Hold broccoli");
-                if (!Mushrooms) specialInstructions.Add("Hold mushrooms");
-                if (!Tomato) specialInstructions.Add("Hold tomato");
-                if (!Cheddar) specialInstructions.Add("Hold cheddar");
+                if (!Broccoli)
+                {
+                    specialInstructions.Add("Hold broccoli"); 
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                if (!Mushrooms)
+                {
+                    specialInstructions.Add("Hold mushrooms"); 
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                if (!Tomato)
+                {
+                    specialInstructions.Add("Hold tomato"); 
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                if (!Cheddar) 
+                {
+                    specialInstructions.Add("Hold cheddar"); 
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 return specialInstructions;
             }
         }

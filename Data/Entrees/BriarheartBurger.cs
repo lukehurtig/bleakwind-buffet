@@ -6,14 +6,20 @@
 
 using System.Collections.Generic;
 using BleakwindBuffet.Data.Classification;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// provides properties describing the Briarheart Burger
     /// </summary>
-    public class BriarheartBurger : Entree, IOrderItem
+    public class BriarheartBurger : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The event handler to be invoked whenever a property is changed in this class
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// the price of the burger
         /// </summary>
@@ -49,6 +55,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
             }
         }
 
@@ -65,6 +72,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
             }
         }
 
@@ -81,6 +89,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
             }
         }
 
@@ -97,6 +106,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
             }
         }
 
@@ -113,6 +123,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
             }
         }
 
@@ -124,11 +135,31 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get
             {
-                if (!Bun) specialInstructions.Add("Hold bun");
-                if (!Ketchup) specialInstructions.Add("Hold ketchup");
-                if (!Mustard) specialInstructions.Add("Hold mustard");
-                if (!Pickle) specialInstructions.Add("Hold pickle");
-                if (!Cheese) specialInstructions.Add("Hold cheese");
+                if (!Bun)
+                {
+                    specialInstructions.Add("Hold bun");
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                if (!Ketchup)
+                {
+                    specialInstructions.Add("Hold ketchup");
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                if (!Mustard)
+                {
+                    specialInstructions.Add("Hold mustard");
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                if (!Pickle)
+                {
+                    specialInstructions.Add("Hold pickle");
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                if (!Cheese)
+                {
+                    specialInstructions.Add("Hold cheese");
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 return specialInstructions;
             }
         }

@@ -6,14 +6,20 @@
 
 using System.Collections.Generic;
 using BleakwindBuffet.Data.Classification;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// provides properties describing the Smokehouse Skeleton
     /// </summary>
-    public class SmokehouseSkeleton : Entree, IOrderItem
+    public class SmokehouseSkeleton : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The event handler to be invoked whenever a property is changed in this class
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// the price of the breakfast platter
         /// </summary>
@@ -50,6 +56,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 sausageLink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
             }
         }
 
@@ -66,6 +73,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
             }
         }
 
@@ -82,6 +90,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 hashBrowns = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
             }
         }
 
@@ -98,6 +107,7 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
             }
         }
 
@@ -109,10 +119,26 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get
             {
-                if (!SausageLink) specialInstructions.Add("Hold sausage");
-                if (!Egg) specialInstructions.Add("Hold eggs");
-                if (!HashBrowns) specialInstructions.Add("Hold hash browns");
-                if (!Pancake) specialInstructions.Add("Hold pancakes");
+                if (!SausageLink)
+                {
+                    specialInstructions.Add("Hold sausage"); 
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                if (!Egg)
+                {
+                    specialInstructions.Add("Hold eggs"); 
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                if (!HashBrowns)
+                {
+                    specialInstructions.Add("Hold hash browns"); 
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+                if (!Pancake)
+                {
+                    specialInstructions.Add("Hold pancakes"); 
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
                 return specialInstructions;
             }
         }
